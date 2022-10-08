@@ -22,16 +22,19 @@ public class AppUserServiceImplementation implements AppUserService {
 
     @Override
     public AppUser saveUser(AppUser appUser) {
+        log.info("Saving new user");
         return appUserRepository.save(appUser);
     }
 
     @Override
     public Role saveRole(Role role) {
+        log.info("Saving new role {}", role.getName());
         return roleRepository.save(role);
     }
 
     @Override
     public void addRoleToAppUser(String username, String roleName) {
+        log.info("Add  role {} to user {}", roleName, username);
         AppUser appUser = appUserRepository.findByUsername(username);
         Role role = roleRepository.findByName(roleName);
         appUser.getRoles().add(role);
@@ -39,11 +42,13 @@ public class AppUserServiceImplementation implements AppUserService {
 
     @Override
     public AppUser getAppUser(String username) {
+        log.info("Fetching user {}", username);
         return appUserRepository.findByUsername(username);
     }
 
     @Override
     public List<AppUser> getAppUsers() {
+        log.info("Fetching all users");
         return appUserRepository.findAll();
     }
 }
