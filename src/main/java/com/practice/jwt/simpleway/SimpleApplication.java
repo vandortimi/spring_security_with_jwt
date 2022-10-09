@@ -24,24 +24,24 @@ public class SimpleApplication {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    CommandLineRunner run(AppUserService appUserService) {
-        return args -> {
-            appUserService.saveRole(new Role(null, "ROLE_USER"));
-            appUserService.saveRole(new Role(null, "ROLE_MANAGER"));
-            appUserService.saveRole(new Role(null, "ROLE_ADMIN"));
-            appUserService.saveRole(new Role(null, "ROLE_SUPER_ADMIN"));
-
-            appUserService.saveUser(new AppUser(null, "John Doe", "john", "test1234", new ArrayList<>()));
-            appUserService.saveUser(new AppUser(null, "Steve Doe", "steve", "test1234", new ArrayList<>()));
-            appUserService.saveUser(new AppUser(null, "Jim Doe", "jim", "test1234", new ArrayList<>()));
-
-            appUserService.addRoleToAppUser("john", "ROLE_USER");
-            appUserService.addRoleToAppUser("john", "ROLE_SUPER_ADMIN");
-            appUserService.addRoleToAppUser("jim", "ROLE_MANAGER");
-            appUserService.addRoleToAppUser("steve", "ROLE_USER");
-            appUserService.addRoleToAppUser("steve", "ROLE_ADMIN");
-        };
-    }
+//    @Bean
+//    CommandLineRunner run(AppUserService appUserService) {
+//        return args -> {
+//            appUserService.saveRole(new Role(null, "ROLE_USER"));
+//            appUserService.saveRole(new Role(null, "ROLE_MANAGER"));
+//            appUserService.saveRole(new Role(null, "ROLE_ADMIN"));
+//            appUserService.saveRole(new Role(null, "ROLE_SUPER_ADMIN"));
+//
+//            appUserService.saveUser(new AppUser(null, "John Doe", "john", "test1234", new ArrayList<>()));
+//            appUserService.saveUser(new AppUser(null, "Steve Doe", "steve", "test1234", new ArrayList<>()));
+//            appUserService.saveUser(new AppUser(null, "Jim Doe", "jim", "test1234", new ArrayList<>()));
+//
+//            appUserService.addRoleToAppUser("john", "ROLE_USER");
+//            appUserService.addRoleToAppUser("john", "ROLE_SUPER_ADMIN");
+//            appUserService.addRoleToAppUser("jim", "ROLE_MANAGER");
+//            appUserService.addRoleToAppUser("steve", "ROLE_USER");
+//            appUserService.addRoleToAppUser("steve", "ROLE_ADMIN");
+//        };
+//    }
 
 }
